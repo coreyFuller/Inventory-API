@@ -1,0 +1,856 @@
+{
+  "info": {
+    "_postman_id": "6111754a-9e87-4add-bd1e-04da9dbbbd7d",
+    "name": "Inventory API Mock",
+    "description": "Inventory API for CUSports",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "inventory",
+      "item": [
+        {
+          "name": "/inventory",
+          "_postman_id": "28556454-60ca-4f5f-910f-8d011992b7d1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/inventory?itemID=1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "inventory"
+              ],
+              "query": [
+                {
+                  "key": "itemID",
+                  "value": "1",
+                  "description": "The id of the item in the database"
+                }
+              ]
+            },
+            "description": "Returns the inventory level of item"
+          },
+          "response": [
+            {
+              "id": "652c8eef-975f-4cc1-befc-83fbae5190f6",
+              "name": "Service not available",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=3",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "99f6ccda-ec2c-47a7-8b97-6fd6f8c43201",
+              "name": "Successfully returned the inventory level of the item",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"inventory_item\": \"Clemson Long Sleeve V-Neck\",\n \"inventory_level\": 120,\n \"reserved\": 20\n}"
+            },
+            {
+              "id": "bb411162-1cf5-4321-ae51-6d95b99ba4d6",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=ClemsonLongSleeve",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "ClemsonLongSleeve"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"Expected ID to be of type integer.\""
+            },
+            {
+              "id": "bdda4b0a-e3e3-4352-b315-696a541b8be4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=4",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "4"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "/inventory",
+          "_postman_id": "06c3ded2-bb46-4033-8745-8e354e90e92b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"itemID\": 1,\r\n    \"inventory_level\": 120,\r\n    \"reserved\": 20\r\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": {
+              "raw": "{{url}}/inventory?itemID=1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "inventory"
+              ],
+              "query": [
+                {
+                  "key": "itemID",
+                  "value": "1",
+                  "description": "The id of the item in the database"
+                }
+              ]
+            },
+            "description": "Updates the inventory for an item"
+          },
+          "response": [
+            {
+              "id": "3d6d22a2-6590-4f4a-86c4-10a4f541a7a5",
+              "name": "Successfully updated inventory level",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": 1,\n    \"inventory_level\": 120,\n    \"reserved\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"Successfully updated inventory level\""
+            },
+            {
+              "id": "676c561d-3ad6-4780-a968-eca0dd14888b",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=2",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"No attributes in request body\""
+            },
+            {
+              "id": "c7c7ee68-6f70-4ff1-94e5-ef346e8aad29",
+              "name": "Internal server error",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": 4,\n    \"inventory_level\": 120,\n    \"reserved\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=4",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "4"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "e92401f4-5706-4113-8b00-920f82042cbc",
+              "name": "Service not available",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": 3,\n    \"inventory_level\": 120,\n    \"reserved\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=3",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "/inventory",
+          "_postman_id": "c2116a9d-fc19-46d7-a2b1-062d3dc64619",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"itemID\": 1,\n    \"item_name\": \"Clemson Long Sleeve V-Neck\",\n    \"inventory_level\": 120\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": {
+              "raw": "{{url}}/inventory?itemID=1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "inventory"
+              ],
+              "query": [
+                {
+                  "key": "itemID",
+                  "value": "1",
+                  "description": "The id of the item in the database"
+                }
+              ]
+            },
+            "description": "Adds new item to the inventory"
+          },
+          "response": [
+            {
+              "id": "22b39a26-4569-46fa-8ea7-162c664ae7c1",
+              "name": "Service not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": 3,\n    \"item_name\": \"Clemson Nikes\",\n    \"inventory_level\": 120\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=3",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "4acaa205-ff9c-4518-b2d8-4c0158828974",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": 2,\n    \"item_name\": \"Clemson T-Shirt\",\n    \"inventory_level\": -12\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=2",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"Cannot have negative inventory level\""
+            },
+            {
+              "id": "746df156-5c8b-4917-8c8c-a1e140bd26df",
+              "name": "Internal server error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": 4,\n    \"item_name\": \"Clemson ball cap\",\n    \"inventory_level\": 120\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=4",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "4"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "b91b9bcc-2c7b-46c2-9f71-b9c8ec82cd25",
+              "name": "Successfully added item to inventory",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": 1,\n    \"item_name\": \"Clemson Long Sleeve V-Neck\",\n    \"inventory_level\": 120\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"Successfully added item to inventory\""
+            }
+          ]
+        },
+        {
+          "name": "/inventory",
+          "_postman_id": "c05c9758-78eb-4a9a-b2bf-6111098e3425",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/inventory?itemID=1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "inventory"
+              ],
+              "query": [
+                {
+                  "key": "itemID",
+                  "value": "1",
+                  "description": "The id of the item in the database"
+                }
+              ]
+            },
+            "description": "deletes an item from the inventory"
+          },
+          "response": [
+            {
+              "id": "686d514e-ba5c-4c4c-af1e-63b17446a6f2",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=4",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "4"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "72dbf45b-f530-42c0-bd6a-1cf8f8b40ecf",
+              "name": "Successfully deleted item from inventory",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"inventory_item\": \"Clemson Long Sleeve V-Neck\"\n}"
+            },
+            {
+              "id": "9776581a-9a85-4642-9681-d34856b4dfc5",
+              "name": "Service not available",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=3",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "e09e99f8-713e-4053-9c2f-c164b70055c9",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=ClemsonLongSleeve",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "ClemsonLongSleeve"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"Expected ID to be of type integer\""
+            }
+          ]
+        }
+      ],
+      "_postman_id": "709b7ed8-a89d-4c50-82de-07225861f08d"
+    }
+  ],
+  "variable": [
+    {
+      "id": "baseUrl",
+      "key": "baseUrl",
+      "value": "https://CUSports.io/v1",
+      "type": "string"
+    }
+  ]
+}
