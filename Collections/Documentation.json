@@ -1,0 +1,760 @@
+{
+  "info": {
+    "_postman_id": "147249b5-8753-4248-a867-493b7198981d",
+    "name": "Inventory API Documentation",
+    "description": "Inventory API for CUSports",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "inventory",
+      "item": [
+        {
+          "name": "/inventory",
+          "_postman_id": "08820176-0890-4f83-b6a4-73fc52220464",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/inventory?itemID=<integer>",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "inventory"
+              ],
+              "query": [
+                {
+                  "key": "itemID",
+                  "value": "<integer>",
+                  "description": "The id of the item in the database"
+                }
+              ]
+            },
+            "description": "Returns the inventory level of item"
+          },
+          "response": [
+            {
+              "id": "3dd757fa-8033-4c8f-a0ed-ef2d333e9aaa",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"ullamco amet\""
+            },
+            {
+              "id": "abfcbca4-38cb-4967-8304-0a81eb457960",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "c618d043-6725-4a2f-9c56-ca852af6ecaf",
+              "name": "Successfully returned the inventory level of the item",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"inventory_item\": \"magna nostrud\",\n \"inventory_level\": 29091850,\n \"reserved\": 77282631\n}"
+            },
+            {
+              "id": "c75c0643-65af-4d1c-a30f-0940975367e2",
+              "name": "Service not available",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "/inventory",
+          "_postman_id": "08bbc856-0f43-42b0-8332-e00af4100c1f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"itemID\": \"<integer>\",\n    \"inventory_level\": \"<integer>\",\n    \"reserved\": \"<integer>\"\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": {
+              "raw": "{{url}}/inventory?itemID=<integer>",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "inventory"
+              ],
+              "query": [
+                {
+                  "key": "itemID",
+                  "value": "<integer>",
+                  "description": "The id of the item in the database"
+                }
+              ]
+            },
+            "description": "Updates the inventory for an item"
+          },
+          "response": [
+            {
+              "id": "5b99b547-e51d-498e-bcd1-12a6790333fc",
+              "name": "Successfully updated inventory level",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": \"<integer>\",\n    \"inventory_level\": \"<integer>\",\n    \"reserved\": \"<integer>\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"ullamco amet\""
+            },
+            {
+              "id": "89de5d12-e499-4fcf-abaf-28bd87cf91c1",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": \"<integer>\",\n    \"inventory_level\": \"<integer>\",\n    \"reserved\": \"<integer>\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"ullamco amet\""
+            },
+            {
+              "id": "a1d6e8e9-4e91-4ebc-85b4-4ee91bf1dd4a",
+              "name": "Internal server error",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": \"<integer>\",\n    \"inventory_level\": \"<integer>\",\n    \"reserved\": \"<integer>\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "bec2df2a-cb01-4780-8f39-658d201c01f3",
+              "name": "Service not available",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": \"<integer>\",\n    \"inventory_level\": \"<integer>\",\n    \"reserved\": \"<integer>\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "/inventory",
+          "_postman_id": "2db655c6-360c-416f-a5e1-218c09c2c496",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"itemID\": \"<integer>\",\n    \"item_name\": \"<string>\",\n    \"inventory_level\": \"<integer>\"\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": {
+              "raw": "{{url}}/inventory?itemID=<integer>",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "inventory"
+              ],
+              "query": [
+                {
+                  "key": "itemID",
+                  "value": "<integer>",
+                  "description": "The id of the item in the database"
+                }
+              ]
+            },
+            "description": "Adds new item to the inventory"
+          },
+          "response": [
+            {
+              "id": "a813b24a-c635-4d32-afe0-a9e4e7e8c6ae",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": \"<integer>\",\n    \"item_name\": \"<string>\",\n    \"inventory_level\": \"<integer>\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"ullamco amet\""
+            },
+            {
+              "id": "ab6d2722-903e-4391-b791-e7cf532aa681",
+              "name": "Internal server error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": \"<integer>\",\n    \"item_name\": \"<string>\",\n    \"inventory_level\": \"<integer>\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "c75ff9cb-49f6-4bd1-8cee-a0916ae0a929",
+              "name": "Successfully added item to inventory",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": \"<integer>\",\n    \"item_name\": \"<string>\",\n    \"inventory_level\": \"<integer>\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"ullamco amet\""
+            },
+            {
+              "id": "e31d4257-28f7-4300-9c47-612e43fd95a7",
+              "name": "Service not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"itemID\": \"<integer>\",\n    \"item_name\": \"<string>\",\n    \"inventory_level\": \"<integer>\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "/inventory",
+          "_postman_id": "a182c7dd-2992-4726-ac2f-a97a38c3f928",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/inventory?itemID=<integer>",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "inventory"
+              ],
+              "query": [
+                {
+                  "key": "itemID",
+                  "value": "<integer>",
+                  "description": "The id of the item in the database"
+                }
+              ]
+            },
+            "description": "deletes an item from the inventory"
+          },
+          "response": [
+            {
+              "id": "3c459689-cf2b-4bbd-a84b-deda01962a3c",
+              "name": "Successfully deleted item from inventory",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"inventory_item\": \"Duis\"\n}"
+            },
+            {
+              "id": "7bbdf78c-7060-42a0-8a95-fe1772c71221",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "7e819267-9b31-4dd1-970c-6fadc9789728",
+              "name": "Service not available",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "d1684934-e730-47f3-9a1a-cbec2f8d8bbc",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory?itemID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory"
+                  ],
+                  "query": [
+                    {
+                      "key": "itemID",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "\"ullamco amet\""
+            }
+          ]
+        }
+      ],
+      "_postman_id": "4d129fa1-2ad8-4450-87d8-4e3c910b2c69"
+    }
+  ],
+  "variable": [
+    {
+      "id": "baseUrl",
+      "key": "baseUrl",
+      "value": "https://CUSports.io/v1",
+      "type": "string"
+    }
+  ]
+}
